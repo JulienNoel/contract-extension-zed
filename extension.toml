@@ -10,5 +10,5 @@ repository = "https://github.com/JulienNoel/contract-extension-zed"
 # The grammar lives in this same repository. Zed clones it at `rev`, so `rev`
 # must be a pushed commit that contains tree-sitter-exact-contract/.
 repository = "https://github.com/JulienNoel/contract-extension-zed"
-rev = "REPLACE_WITH_COMMIT_HASH"
+rev = "8b1df091da73653d1e8c715700d850d1d5039d3e"
 path = "tree-sitter-exact-contract"

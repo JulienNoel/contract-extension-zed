@@ -1,0 +1,18 @@
+name = "Exact Contract"
+grammar = "exact_contract"
+path_suffixes = ["contract"]
+line_comments = ["// "]
+tab_size = 2
+hard_tabs = false
+word_characters = ["-"]
+autoclose_before = ";:.,=}])> \n\t\""
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "`", end = "`", close = true, newline = false, not_in = ["string", "comment"] },
+]
+# Contract's blocks are made by indentation: indent after a line that opens one.
+# Same pattern as editors/vscode/language-configuration.json in the Exact repo.
+increase_indent_pattern = '^\s*(?:(?:component|shape|style|keyframes|routes|action|task|sequence|when|if|else|for|match|case|provide|members)\b.*|(?:props|inject|view|theme|params|parts|perf)\s*|font\s+"[^"\\]+"\s*|test\s+"[^"\\]+"(?:\s+on\s+[a-z]+(?:\s*,\s*[a-z]+)*)?\s*)(?://.*)?$'

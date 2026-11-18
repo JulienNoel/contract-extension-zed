@@ -1,0 +1,35 @@
+use Card, CardProps from "./card.contract"
+
+// A comment
+fn label(count: number): string = count == 1 ? "1 item" : `${count} items\n`
+
+shape Item
+  id: string
+  done: bool
+
+style Pill
+  padding="4px 8px" border-radius=8 -exact-tint-color=#1f9d62
+  :hover
+    background-color="#eee"
+
+component App
+  state items: Item[] = []
+  state query = ""
+  derive open = items.filter(item => not item.done)
+  resource feed = fetchFeed() as shape Item[]
+  mutation saved as shape Item refreshes feed
+  action add(text: string)
+    if text.trim() != ""
+      send saved = saveItem(text)
+      query = ""
+  view
+    column gap=8 press=add
+      text label(open.length) class=Pill
+      for item, index in open key=item.id
+        Card(title=item.id)
+      match first(items) { case some(i) => i.id, case none => "" }
+      apple-map region=none
+
+test "adds an item"
+  tap "add"
+  expect state query == ""

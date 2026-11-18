@@ -1,0 +1,14 @@
+id = "exact-contract"
+name = "Exact Contract"
+description = "Syntax highlighting for Exact's Contract language (.contract)"
+version = "0.1.0"
+schema_version = 1
+authors = ["julien"]
+repository = "https://github.com/JulienNoel/contract-extension-zed"
+
+[grammars.exact_contract]
+# The grammar lives in this same repository. Zed clones it at `rev`, so `rev`
+# must be a pushed commit that contains tree-sitter-exact-contract/.
+repository = "https://github.com/JulienNoel/contract-extension-zed"
+rev = "REPLACE_WITH_COMMIT_HASH"
+path = "tree-sitter-exact-contract"

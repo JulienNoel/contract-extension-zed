@@ -1,0 +1,11 @@
+# Zed clones and compiles the grammar here when it installs the extension.
+grammars/
+*.wasm
+node_modules/
+
+# Left by `tree-sitter parse` compiling the parser with MSVC.
+*.obj
+*.lib
+*.exp
+*.dll
+
